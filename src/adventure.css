@@ -1,0 +1,338 @@
+/* SALTWAKE • warm harbours, cool seas, field-guide cards */
+:root { --shore-cream: #f6ebd0; --shore-dim: #a7bcc2; --shore-surface: #102f46; --shore-line: #f5e6c423; }
+button, a, input, select { -webkit-tap-highlight-color: transparent; }
+button { cursor: pointer; }
+button:disabled { cursor: not-allowed; }
+button:focus-visible, select:focus-visible, input:focus-visible, [role="button"]:focus-visible { outline: 2px solid #ffd78a; outline-offset: 3px; }
+.eyebrow { font-size: 10px; font-weight: 600; letter-spacing: 1.8px; color: #b4c6c8; }
+.icon-button { display: grid; place-items: center; width: 35px; height: 35px; border-radius: 11px; background: #f4ebd00a; border: 1px solid var(--shore-line); color: var(--shore-cream); transition: background .15s; flex-shrink: 0; }
+.icon-button:hover { background: #f4ebd01c; }
+.tiny-key { font-size: 10px; display: inline-flex; align-items: center; justify-content: center; background: #f2e6c91c; border: 1px solid #f2e6c930; border-bottom-width: 2px; border-radius: 5px; padding: 2px 5px; font-weight: 600; line-height: 1.1; }
+.harbor-overlay, .journal-overlay { background: radial-gradient(ellipse at 50% 30%, #112d4480, #040e1fed); z-index: 20; }
+.harbor-shell, .journal-shell { width: min(1080px, 100%); border: 1px solid #f5e6c433; border-radius: 25px; background: linear-gradient(150deg, #12344a, #0a243b); box-shadow: 0 25px 100px #0009, inset 0 1px 0 #fff1; overflow: hidden; max-height: calc(100dvh - 24px); display: flex; flex-direction: column; color: var(--shore-cream); }
+.harbor-header { padding: 21px 24px 19px; border-bottom: 1px solid var(--shore-line); display: flex; justify-content: space-between; gap: 18px; align-items: center; background: #ffffff03; flex-shrink: 0; }
+.harbor-heading { display: flex; gap: 13px; align-items: center; }
+.harbor-anchor { display: grid; place-items: center; height: 50px; width: 50px; background: #f9d28516; border-radius: 16px; color: #ffda98; border: 1px solid #f9d28535; }
+.harbor-heading h1 { display: flex; align-items: center; gap: 15px; font-weight: 600; font-size: 35px; line-height: 1.25; margin: 0; letter-spacing: -.6px; }
+.docked-badge { font-weight: 400; font-size: 11px; letter-spacing: 0; color: #b3e6cd; display: inline-flex; align-items: center; gap: 6px; }
+.docked-badge i { width: 5px; height: 5px; border-radius: 50%; background: #a2eac3; box-shadow: 0 0 10px #a2eac399; }
+.harbor-header-tools { display: flex; align-items: center; gap: 9px; }
+.wallet { display: inline-flex; gap: 7px; align-items: center; padding: 9px 13px; border: 1px solid #ffda7d42; background: #ffda7d0d; color: #ffda90; border-radius: 13px; }
+.wallet b { font-size: 20px; font-weight: 600; line-height: 1; }
+.wallet span { font-size: 11px; color: #d9c28f; }
+.harbor-content { display: grid; grid-template-columns: minmax(0, 1.05fr) minmax(0, 1fr); padding: 22px; gap: 24px; min-height: 0; overflow: auto; }
+.harbor-location { min-width: 0; }
+.harbor-scene-wrap { overflow: hidden; border-radius: 16px; border: 1px solid #f4e1b52e; background: #09263c; }
+.harbor-scene { width: 100%; display: block; cursor: crosshair; touch-action: manipulation; }
+.shore-hotspot { cursor: pointer; outline: none; }
+.shore-hotspot:hover .shore-label rect, .shore-hotspot:focus .shore-label rect { fill: #276471; stroke-width: 2; }
+.scene-help { display: flex; align-items: center; justify-content: center; gap: 7px; color: #c0ced0; font-size: 10px; padding: 9px 8px; }
+.help-divider { color: #ffd893; }
+.harbor-ripples { animation: ripple-drift 6s ease-in-out infinite; }
+.harbor-boat { animation: harbor-bob 3s ease-in-out infinite; }
+@keyframes harbor-bob { 50% { transform: translate(62px, 334px) rotate(-1deg); } }
+@keyframes ripple-drift { 50% { transform: translateX(8px); opacity: .35; } }
+.port-caption { display: flex; gap: 6px; align-items: center; color: #e0c898; font-size: 10px; margin-top: 13px; }
+.caption-sea { margin-left: auto; color: #9cbdc7; font-size: 10px; }
+.port-description { margin: 9px 0 14px; font-size: 13px; line-height: 1.5; color: #c4cfd1; font-weight: 400; max-width: 440px; }
+.shore-treasure { padding: 12px; border: 1px solid #dcb56537; background: linear-gradient(100deg, #e7be6d10, #e7be6d03); display: flex; gap: 11px; align-items: center; border-radius: 13px; }
+.treasure-icon { color: #f4d08a; }
+.shore-treasure div { display: flex; flex-direction: column; gap: 3px; }
+.shore-treasure b { font-size: 12px; font-weight: 500; color: #efdba9; }
+.shore-treasure div span { font-size: 10px; color: #aeaa91; line-height: 1.5; }
+.treasure-tag { margin-left: auto; font-size: 11px; white-space: nowrap; padding: 3px 6px; background: #f5d08e14; border: 1px solid #f5d08e33; border-radius: 5px; color: #ffd68c; }
+.shore-treasure.found { border-color: #94dba425; }
+.shore-treasure.found b, .shore-treasure.found .treasure-icon { color: #a6d8b7; }
+.port-session-stats { margin-top: 14px; display: flex; gap: 16px; font-size: 11px; color: #a4b8c0; }
+.port-session-stats div { display: flex; gap: 5px; align-items: center; }
+.port-session-stats b { color: #e8ddc1; font-weight: 500; }
+.harbor-activities { min-width: 0; display: flex; flex-direction: column; }
+.harbor-tabs { display: flex; gap: 3px; border-bottom: 1px solid var(--shore-line); padding-bottom: 10px; margin-bottom: 18px; flex-shrink: 0; }
+.harbor-tabs button { padding: 8px 10px; font-size: 12px; font-weight: 500; display: flex; gap: 6px; align-items: center; flex: 1; justify-content: center; background: transparent; color: #9bb4bf; border-radius: 9px; white-space: nowrap; border: 1px solid transparent; position: relative; }
+.harbor-tabs button:hover { background: #e9e2c80a; color: #eddbb3; }
+.harbor-tabs button.active { background: #ffcd8714; border-color: #ffcd8732; color: #ffda9d; }
+.notification-dot { position: absolute; right: 8px; top: 5px; width: 5px; height: 5px; border-radius: 50%; background: #a9e6b9; }
+.activity-content { max-height: calc(100dvh - 246px); overflow-y: auto; padding-right: 3px; min-height: 355px; animation: activity-in .2s ease both; scrollbar-width: thin; scrollbar-color: #b0d4d433 transparent; }
+@keyframes activity-in { from { opacity: .5; transform: translateY(4px); } to { opacity: 1; transform: translateY(0); } }
+.activity-title { display: flex; justify-content: space-between; align-items: center; gap: 14px; }
+.activity-title > svg { color: #9bd3d5; opacity: .7; margin-right: 2px; }
+.activity-title h2 { margin: 3px 0 0; font-size: 23px; line-height: 1.1; font-weight: 500; letter-spacing: -.5px; }
+.activity-copy { color: #a7bdc5; font-size: 11px; line-height: 1.55; margin: 9px 0 14px; }
+.market-list { max-height: 220px; overflow-y: auto; border: 1px solid var(--shore-line); border-radius: 12px; scrollbar-width: thin; }
+.market-row { display: flex; align-items: center; padding: 5px 11px 5px 3px; gap: 6px; min-height: 52px; border-bottom: 1px solid #efe8c610; }
+.market-row:last-child { border-bottom: 0; }
+.market-fish { width: 60px; height: 37px; }
+.fish-portrait { width: 100%; height: 100%; object-fit: contain; display: block; }
+.market-name { flex: 1; min-width: 0; }
+.market-name b { font-size: 12px; font-weight: 500; }
+.market-name > span { display: block; font-size: 10px; color: #90b4bf; margin-top: 3px; }
+.market-name em { font-style: normal; color: #9ddebd; padding-left: 3px; }
+.market-price { display: flex; align-items: center; gap: 5px; color: #f3d491; font-size: 14px; white-space: nowrap; }
+.market-total { display: flex; justify-content: space-between; align-items: center; padding: 13px 1px; }
+.market-total > span { font-size: 12px; color: #c2cdca; }
+.market-total small { display: block; font-size: 10px; color: #91aeb7; margin-top: 2px; }
+.market-total b { display: flex; align-items: center; gap: 7px; font-size: 24px; font-weight: 500; color: #ffd894; }
+.shore-button { display: flex; align-items: center; justify-content: center; gap: 10px; width: 100%; border: 1px solid #ffdba149; border-radius: 11px; padding: 12px; color: #062b3a; background: #dfc890; font-size: 13px; font-weight: 600; transition: filter .15s, transform .1s; }
+.shore-button:hover:not(:disabled) { filter: brightness(1.1); }
+.shore-button:active:not(:disabled) { transform: translateY(2px); }
+.shore-button:disabled { color: #849799; background: #e4dab50a; border-color: #e4dab51a; }
+.sell-button { background: linear-gradient(#ffab82, #ef8b6c); border-color: #ffca9560; color: #3e3027; }
+.shore-button svg:last-child { margin-left: auto; }
+.shore-button svg:first-child { margin-right: auto; }
+.local-demand { display: flex; align-items: flex-start; gap: 6px; font-size: 10px; line-height: 1.5; color: #b8b89e; margin: 13px 0 2px; }
+.local-demand svg { color: #e4c785; margin-top: 1px; }
+.empty-hold { display: flex; flex-direction: column; align-items: center; padding: 24px 14px; background: #dde4d204; border: 1px dashed #bacebf28; border-radius: 13px; text-align: center; color: #91b9c6; }
+.empty-hold h3 { font-size: 16px; color: #c9d7d3; font-weight: 500; margin: 12px 0 4px; }
+.empty-hold p { margin: 0; max-width: 250px; line-height: 1.6; font-size: 12px; }
+.empty-hold > span { font-size: 10px; color: #788f94; margin-top: 13px; }
+.upgrade-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 9px; }
+.upgrade-card { background: #d9e5d705; border: 1px solid var(--shore-line); padding: 12px; border-radius: 12px; display: flex; flex-direction: column; min-height: 156px; }
+.upgrade-card-top { display: flex; justify-content: space-between; align-items: center; }
+.level-dots { display: flex; gap: 3px; }
+.level-dots i { width: 6px; height: 6px; border-radius: 50%; background: #d5ded223; }
+.upgrade-card h3 { font-size: 13px; font-weight: 500; margin: 9px 0 4px; }
+.upgrade-card p { font-size: 10px; line-height: 1.55; color: #94b0bb; margin: 0 0 9px; flex: 1; }
+.purchase-button { display: flex; width: 100%; justify-content: space-between; align-items: center; border: 1px solid #c9d9c827; padding: 7px 8px; border-radius: 7px; background: #dae2c809; color: #e8d8ae; font-size: 10px; gap: 5px; }
+.purchase-button b { display: flex; align-items: center; gap: 4px; font-weight: 500; }
+.purchase-button:hover:not(:disabled) { background: #dae2c81c; }
+.purchase-button:disabled { color: #6a878f; }
+.supply-title { font-weight: 500; font-size: 12px; margin: 15px 0 9px; }
+.supplies { display: grid; grid-template-columns: repeat(3, 1fr); gap: 7px; }
+.supplies button { padding: 9px 5px; display: flex; flex-direction: column; align-items: center; gap: 4px; border: 1px solid #dde1c82b; border-radius: 10px; background: #dde1c809; color: #b9d4cd; }
+.supplies button:hover:not(:disabled) { background: #dde1c819; }
+.supplies button:disabled { opacity: .4; }
+.supplies b { font-size: 10px; font-weight: 400; }
+.supplies span { font-size: 11px; display: flex; align-items: center; gap: 3px; color: #dfc17f; }
+.active-mission { padding: 14px; border: 1px solid #b7d1ab30; border-radius: 12px; background: #abd6aa08; margin-bottom: 13px; }
+.active-mission .eyebrow { color: #a5c9b8; font-size: 9px; }
+.active-mission h3 { font-size: 16px; font-weight: 500; margin: 6px 0; }
+.active-mission p { font-size: 11px; color: #b3c8c6; line-height: 1.55; margin: 0 0 12px; }
+.mission-meter { background: #b7d1ab15; border-radius: 5px; height: 5px; overflow: hidden; }
+.mission-meter span { display: block; height: 100%; background: #a6d7af; border-radius: 5px; transition: width .2s; }
+.mission-bottom { display: flex; justify-content: space-between; align-items: center; font-size: 11px; color: #adc6b9; padding-top: 9px; }
+.mission-bottom b { display: flex; gap: 5px; align-items: center; color: #ebd194; font-weight: 500; }
+.mission-claim { margin-top: 12px; background: #a8d6b7; border-color: #a8d6b755; padding: 9px; }
+.abandon-mission { background: none; border: none; font-size: 9px; color: #89a69a; margin-top: 10px; text-decoration: underline; text-underline-offset: 3px; }
+.active-mission.complete { border-color: #afe8ba80; box-shadow: inset 0 0 30px #afe8ba08; }
+.mission-list { display: flex; flex-direction: column; gap: 9px; }
+.mission-list article { display: flex; gap: 11px; border: 1px solid var(--shore-line); border-radius: 12px; padding: 12px; align-items: flex-start; }
+.mission-icon { color: #dcc8ff; background: #dcc8ff0d; border-radius: 9px; padding: 8px; }
+.mission-list article > div { flex: 1; }
+.mission-list h3 { font-size: 12px; font-weight: 500; margin: 0 0 4px; }
+.mission-list p { color: #93b0bb; font-size: 10px; line-height: 1.5; margin: 0; }
+.mission-reward { display: inline-block; margin-top: 5px; color: #f0cd8f; font-size: 10px; }
+.accept-mission { border: 1px solid #eddbb42e; background: #eddbb40d; color: #e9dcb8; border-radius: 8px; padding: 7px; margin-top: 5px; }
+.accept-mission:disabled { opacity: .25; }
+.world-chart { width: 100%; display: block; border: 1px solid #d6d8b63b; border-radius: 13px; overflow: hidden; }
+.chart-pin { cursor: pointer; outline: none; }
+.chart-pin:hover circle:last-child, .chart-pin:focus circle:last-child { fill: #fff8c3; stroke: #faad80; stroke-width: 3; }
+.route-select { display: flex; align-items: center; gap: 9px; font-size: 10px; color: #97b4bd; margin: 13px 0; }
+.route-select select, .journal-tools select { color: #d4e0d5; border: 1px solid #d4e0d52b; background: #16364c; font-family: inherit; border-radius: 8px; padding: 7px; flex: 1; font-size: 11px; min-width: 0; }
+.route-select option, .journal-tools option { background: #123046; }
+.route-destination { display: flex; gap: 10px; align-items: center; margin-bottom: 12px; }
+.destination-icon { color: #b6dace; background: #b6dace0b; padding: 8px; border-radius: 10px; }
+.route-destination h3 { font-size: 17px; font-weight: 500; margin: 0 0 3px; }
+.route-destination p { font-size: 9px; color: #9abcc3; margin: 0; }
+.route-cost { display: flex; gap: 5px; color: #efce89; align-items: center; margin-left: auto; font-size: 15px; }
+.map-disclaimer { margin: 9px 0 0; font-size: 9px; color: #7f9fa7; text-align: center; }
+.harbor-footer { padding: 14px 22px; border-top: 1px solid var(--shore-line); display: flex; gap: 18px; align-items: center; justify-content: space-between; background: #05192b42; flex-shrink: 0; }
+.port-message { display: flex; align-items: center; gap: 7px; color: #9cbdc3; font-size: 11px; line-height: 1.5; }
+.port-message svg { color: #98c6b3; }
+.return-to-sea { display: inline-flex; align-items: center; gap: 9px; flex-shrink: 0; font-size: 13px; font-weight: 500; padding: 10px 15px; border: 1px solid #f7d89750; background: #f7d89711; color: #f7d897; border-radius: 11px; }
+.return-to-sea:hover { background: #f7d89720; }
+/* Field guide */
+.journal-shell { width: min(1070px, 100%); }
+.journal-header { display: flex; align-items: center; gap: 20px; padding: 20px 25px; border-bottom: 1px solid var(--shore-line); flex-shrink: 0; }
+.journal-title { display: flex; align-items: center; gap: 13px; }
+.journal-title > svg { color: #c4e7de; }
+.journal-title h1 { font-size: 28px; font-weight: 500; margin: 3px 0 0; letter-spacing: -.7px; line-height: 1.2; }
+.journal-counter { margin-left: auto; font-size: 15px; color: #8aadb4; white-space: nowrap; }
+.journal-counter b { color: #f1d897; font-size: 25px; font-weight: 500; }
+.journal-counter > span { display: block; font-size: 9px; letter-spacing: 1px; margin-top: 2px; }
+.journal-layout { display: grid; grid-template-columns: 266px minmax(0, 1fr); min-height: 0; height: min(590px, calc(100dvh - 136px)); }
+.fish-detail { padding: 23px; border-right: 1px solid var(--shore-line); background: #0620334f; overflow-y: auto; scrollbar-width: thin; scrollbar-color: #accbce33 transparent; }
+.rarity-badge { display: inline-flex; gap: 5px; align-items: center; font-size: 9px; letter-spacing: 1px; text-transform: uppercase; padding: 4px 7px; border-radius: 6px; background: #9ebaba12; border: 1px solid #9ebaba26; }
+.rarity-1 { --rarity: #8bbfc9; }
+.rarity-2 { --rarity: #b3ddaa; }
+.rarity-3 { --rarity: #eac489; }
+.rarity-badge { color: var(--rarity); border-color: color-mix(in srgb, var(--rarity), transparent 75%); }
+.detail-portrait { height: 160px; display: grid; place-items: center; position: relative; margin: 10px -4px 8px; }
+.detail-portrait canvas { position: relative; width: 210px; height: 110px; }
+.fish-aura { position: absolute; width: 150px; height: 150px; border-radius: 50%; background: radial-gradient(circle, #4b96a31e, #4b96a305 60%, transparent 70%); border: 1px dashed #98cdd922; }
+.portrait-waterline { position: absolute; bottom: 25px; width: 78px; height: 4px; border-radius: 50%; background: #78abb212; box-shadow: 0 0 7px #78abb233; }
+.fish-detail > .eyebrow { font-size: 8px; color: #7daab7; }
+.fish-detail h2 { font-size: 23px; font-weight: 500; line-height: 1.1; margin: 6px 0 12px; }
+.fish-description { font-size: 11px; line-height: 1.7; color: #acbfc5; margin: 0 0 15px; }
+.fish-facts { display: grid; grid-template-columns: repeat(3, 1fr); gap: 9px; border-top: 1px solid var(--shore-line); border-bottom: 1px solid var(--shore-line); padding: 11px 0; }
+.fish-facts div { display: flex; flex-direction: column; gap: 5px; }
+.fish-facts span { font-size: 9px; color: #83a7b3; }
+.fish-facts b { font-size: 17px; font-weight: 500; color: #e3d5ac; }
+.fish-detail h3 { display: flex; align-items: center; gap: 5px; font-size: 11px; font-weight: 500; margin: 16px 0 9px; }
+.habitat-tags { display: flex; flex-wrap: wrap; gap: 5px; }
+.habitat-tags button { font-size: 9px; padding: 4px 6px; color: #a9c8c9; border: 1px solid #bedfd021; border-radius: 5px; background: #bedfd007; }
+.habitat-tags button:hover { background: #bedfd01b; }
+.fish-method { display: flex; align-items: flex-start; gap: 6px; font-size: 10px; line-height: 1.6; padding: 11px; background: #c6e1b605; border-radius: 8px; border: 1px solid #c6e1b615; margin-top: 16px; color: #95bdbd; }
+.fish-method svg { margin-top: 2px; }
+.journal-overall { display: flex; flex-direction: column; gap: 7px; color: #7fa3aa; font-size: 10px; margin-top: 17px; }
+.journal-overall span { display: flex; align-items: center; gap: 7px; }
+.journal-collection { padding: 20px; display: flex; flex-direction: column; min-height: 0; min-width: 0; }
+.journal-tools { display: flex; gap: 9px; margin-bottom: 13px; }
+.journal-search { display: flex; align-items: center; gap: 7px; padding: 8px 11px; background: #07223566; border: 1px solid #cddccd23; border-radius: 9px; flex: 1.5; min-width: 0; color: #8fb0ba; }
+.journal-search input { background: transparent; border: 0; color: #d2dfda; outline: none; min-width: 0; width: 100%; font: inherit; font-size: 12px; user-select: text; }
+.journal-search input::placeholder { color: #7f9fab; }
+.journal-tools select { flex: 1; }
+.collection-filters { display: flex; gap: 8px; justify-content: space-between; align-items: center; margin-bottom: 14px; }
+.collection-filters > div { display: flex; gap: 4px; }
+.collection-filters button { border: 1px solid transparent; color: #91b2bb; background: none; padding: 6px 10px; border-radius: 7px; font-size: 11px; }
+.collection-filters button.active { background: #c4dacb12; color: #dddabb; border-color: #c4dacb28; }
+.collection-filters > span { font-size: 10px; color: #7498a7; }
+.fish-gallery { display: grid; grid-template-columns: repeat(auto-fill, minmax(124px, 1fr)); gap: 9px; overflow-y: auto; align-content: start; padding: 2px 3px 4px 0; scrollbar-width: thin; scrollbar-color: #bbdcd933 transparent; flex: 1; min-height: 0; }
+.fish-card { min-height: 126px; border: 1px solid #c8d8c51c; border-radius: 11px; background: #d8e4d104; color: #8babb8; display: flex; flex-direction: column; align-items: center; padding: 9px 8px 10px; transition: border .12s, background .12s; position: relative; }
+.fish-card:hover, .fish-card.selected { border-color: var(--rarity); background: #cae2d30b; }
+.fish-card.selected:before { content: ""; position: absolute; top: 0; right: 10px; left: 10px; height: 2px; background: var(--rarity); opacity: .9; }
+.fish-card-meta { width: 100%; display: flex; justify-content: space-between; align-items: center; font-size: 9px; color: var(--rarity); opacity: .6; }
+.fish-card-portrait { height: 64px; width: 110px; position: relative; }
+.fish-card-portrait canvas { width: 100%; height: 100%; }
+.fish-portrait.silhouette { filter: brightness(.2) saturate(.2); opacity: .3; }
+.unknown-fish { position: absolute; font-size: 20px; top: 13px; left: 0; right: 0; opacity: .42; }
+.fish-card b { font-size: 11px; font-weight: 500; line-height: 1.25; text-align: center; color: #8da8b4; }
+.fish-card.discovered b { color: #e3e1c8; }
+.fish-card-count { font-size: 9px; margin-top: 4px; color: #638c9c; }
+.fish-card.discovered .fish-card-count { color: var(--rarity); }
+.no-fish-results { grid-column: 1 / -1; padding: 55px 14px; text-align: center; color: #8babb7; display: flex; flex-direction: column; align-items: center; }
+.no-fish-results h3 { font-size: 18px; font-weight: 500; margin: 13px 0 6px; }
+.no-fish-results p { font-size: 12px; }
+.no-fish-results button { border: 1px solid #d5dcbd2e; background: #d5dcbd10; color: #ddd9b8; font-size: 12px; padding: 8px 12px; border-radius: 9px; margin-top: 8px; }
+.collection-footer { padding-top: 12px; border-top: 1px solid #c9dacc13; margin-top: 12px; display: flex; align-items: center; gap: 6px; font-size: 9px; color: #79a0a9; flex-shrink: 0; }
+.collection-footer button { margin-left: auto; color: #c5ccb2; background: none; border: none; font-size: 10px; white-space: nowrap; }
+/* In-game adventure controls */
+.adventure-hud-layer { position: fixed; inset: 0; pointer-events: none; z-index: 5; }
+.adventure-hud { position: absolute; display: flex; flex-direction: column; gap: 5px; pointer-events: auto; }
+.sea-wallet { display: flex; gap: 5px; align-items: center; border: 1px solid #ffd58a40; border-radius: 9px; padding: 7px 9px; background: #082239bf; color: #ffdb9d; }
+.sea-wallet b { font-weight: 600; }
+.sea-wallet > span { color: #acc7ca; margin-left: auto; font-size: .8em; }
+.adventure-hud > button { padding: 7px 9px; border: 1px solid #e5dfc527; border-radius: 9px; background: #082239bf; color: #c4e0dc; display: flex; align-items: center; gap: 7px; font-family: inherit; font-size: .95em; }
+.adventure-hud > button:hover { background: #104758e8; }
+.adventure-hud > button:disabled { opacity: .5; }
+.adventure-hud > button > span:not(.hud-key) { display: flex; gap: 6px; }
+.adventure-hud > button b { color: #ffdb9d; font-weight: 500; }
+.hud-key { margin-left: auto; font-size: .8em; padding: 1px 4px; border: 1px solid #dce5ca37; border-bottom-width: 2px; border-radius: 4px; color: #a6bfc1; }
+.adventure-hud > button.bait-active { border-color: #efd38ba0; color: #ffe8ad; background: #47492bb8; }
+.sea-mission { display: flex; align-items: flex-start; gap: 6px; padding: 7px 6px; color: #9bc4ce; }
+.sea-mission b { font-weight: 400; font-size: .8em; color: #bfdbd6; display: block; line-height: 1.3; }
+.sea-mission div > span { font-size: .72em; color: #92bdc3; margin-top: 2px; display: block; }
+.sea-mission.completed, .sea-mission.completed b { color: #b2f0c6; }
+.dock-prompt { pointer-events: auto; position: absolute; bottom: 113px; left: 50%; transform: translateX(-50%); display: flex; align-items: center; gap: 11px; background: #143f46e8; border: 1px solid #f6dd9a85; color: #fff0c2; border-radius: 15px; padding: 11px 13px; box-shadow: 0 6px 30px #0616246b; max-width: calc(100vw - 20px); text-align: left; animation: dock-enter .2s ease; }
+.dock-prompt:hover { background: #205d60f5; }
+.dock-prompt > span > b { font-weight: 500; display: block; font-size: 14px; }
+.dock-prompt small { display: block; font-size: 10px; color: #b4d1c8; margin-top: 3px; line-height: 1.3; }
+.dock-key { margin-left: 9px; font-size: 16px; border: 1px solid #fff1bc75; border-radius: 7px; padding: 4px 9px; background: #fff1bc0d; }
+@keyframes dock-enter { from { opacity: 0; bottom: 106px; } to { opacity: 1; bottom: 113px; } }
+/* New voyage start screen details */
+.start-card { gap: 12px; }
+.start-card > .start-col { gap: 12px; }
+.new-season { color: #d1dbc5; border: 1px solid #c3e8c53d; border-radius: 20px; display: inline-flex; gap: 6px; align-items: center; font-size: 10px; padding: 5px 9px; letter-spacing: 1.2px; background: #c3e8c509; }
+.new-season i { width: 5px; height: 5px; border-radius: 50%; background: #bbefc6; }
+.world-stats { display: flex; justify-content: center; align-items: center; width: 100%; gap: 28px; padding: 13px 0; border-top: 1px solid #fff4dc1a; border-bottom: 1px solid #fff4dc1a; }
+.world-stats > div { display: flex; flex-direction: column; align-items: center; gap: 2px; color: #e8d7b3; }
+.world-stats b { font-size: 23px; font-weight: 500; line-height: 1; }
+.world-stats span { font-size: 10px; color: #98bdc4; }
+.shore-intro { font-size: 12px; line-height: 1.6; color: #a9c4c8; text-align: center; }
+.shore-intro b { font-weight: 500; color: #e9d8ad; }
+@media (max-width: 720px) {
+  .harbor-header { padding: 16px; gap: 8px; }
+  .harbor-heading { gap: 8px; }
+  .harbor-heading h1 { font-size: 25px; }
+  .harbor-heading .eyebrow { font-size: 8px; letter-spacing: 1.2px; }
+  .harbor-anchor { height: 38px; width: 38px; border-radius: 12px; }
+  .harbor-header-tools { gap: 6px; }
+  .docked-badge { display: none; }
+  .wallet { padding: 7px 9px; gap: 5px; border-radius: 10px; }
+  .wallet b { font-size: 17px; }
+  .wallet span, .journal-link { display: none; }
+  .harbor-shell { border-radius: 19px; }
+  .harbor-content { display: block; padding: 15px; }
+  .harbor-location { margin-bottom: 21px; }
+  .port-caption { font-size: 9px; }
+  .caption-sea { font-size: 9px; }
+  .port-description { font-size: 12px; }
+  .port-session-stats { justify-content: space-between; gap: 6px; font-size: 10px; }
+  .harbor-tabs { position: sticky; top: -1px; background: #102d44; z-index: 1; padding-top: 8px; margin-bottom: 13px; }
+  .harbor-tabs button { padding: 8px 6px; font-size: 11px; }
+  .harbor-tabs button svg { width: 16px; }
+  .activity-content { max-height: none; min-height: 0; overflow: visible; padding-bottom: 7px; }
+  .harbor-footer { padding: 12px 14px; gap: 9px; }
+  .port-message { font-size: 9px; }
+  .port-message svg { display: none; }
+  .return-to-sea { padding: 10px 11px; font-size: 11px; gap: 6px; }
+  .return-to-sea .tiny-key { display: none; }
+  .journal-header { padding: 15px; gap: 10px; }
+  .journal-title { gap: 8px; }
+  .journal-title > svg { width: 22px; }
+  .journal-title h1 { font-size: 22px; }
+  .journal-title .eyebrow { font-size: 7px; letter-spacing: .7px; }
+  .journal-counter { font-size: 10px; }
+  .journal-counter b { font-size: 18px; }
+  .journal-counter > span { display: none; }
+  .journal-layout { grid-template-columns: 1fr; grid-template-rows: auto minmax(0, 1fr); height: calc(100dvh - 115px); }
+  .fish-detail { display: grid; grid-template-columns: 95px 1fr; gap: 5px 12px; padding: 14px; border-right: none; border-bottom: 1px solid var(--shore-line); overflow: hidden; }
+  .fish-detail .rarity-badge { grid-column: 2; grid-row: 1; width: fit-content; padding: 2px 5px; font-size: 8px; }
+  .detail-portrait { grid-column: 1; grid-row: 1 / 5; margin: 0; height: 110px; }
+  .detail-portrait canvas { width: 110px; height: 80px; }
+  .fish-aura { height: 96px; width: 96px; }
+  .portrait-waterline { bottom: 7px; width: 44px; }
+  .fish-detail > .eyebrow { grid-column: 2; grid-row: 2; font-size: 7px; }
+  .fish-detail h2 { grid-column: 2; grid-row: 3; margin: 0; font-size: 20px; }
+  .fish-description { grid-column: 2; grid-row: 4; margin: 0; font-size: 10px; line-height: 1.5; max-height: 46px; overflow: hidden; }
+  .fish-facts, .fish-detail h3, .habitat-tags, .journal-overall { display: none; }
+  .fish-method { grid-column: 1 / -1; margin: 0; padding: 7px 9px; font-size: 9px; }
+  .journal-collection { padding: 13px; }
+  .journal-tools { flex-wrap: wrap; gap: 7px; margin-bottom: 9px; }
+  .journal-search { flex: 1.4; padding: 7px 9px; }
+  .journal-search input { font-size: 11px; }
+  .journal-tools select { flex: 1; font-size: 10px; }
+  .fish-gallery { grid-template-columns: repeat(auto-fill, minmax(93px, 1fr)); gap: 7px; }
+  .fish-card { min-height: 115px; padding: 7px 5px 8px; }
+  .fish-card-portrait { width: 90px; height: 57px; }
+  .fish-card b { font-size: 10px; }
+  .collection-filters { margin-bottom: 10px; }
+  .collection-filters button { padding: 5px 8px; font-size: 10px; }
+  .collection-filters > span { font-size: 9px; }
+  .collection-footer { font-size: 8px; margin-top: 9px; padding-top: 9px; }
+  .collection-footer > svg { display: none; }
+  .dock-prompt { bottom: 185px; width: 285px; gap: 7px; padding: 9px 11px; animation: none; }
+  .dock-prompt > span > b { font-size: 12px; }
+  .dock-prompt small { font-size: 9px; }
+  .dock-key { font-size: 13px; padding: 4px 7px; margin-left: 4px; }
+}
+@media (max-height: 540px) and (min-width: 650px) {
+  .harbor-header { padding: 10px 17px; }
+  .harbor-heading h1 { font-size: 26px; }
+  .harbor-anchor { width: 40px; height: 40px; border-radius: 13px; }
+  .harbor-content { padding: 13px 17px; gap: 17px; grid-template-columns: 42% minmax(0, 1fr); }
+  .activity-content { max-height: none; overflow: visible; min-height: 0; }
+  .harbor-tabs { margin-bottom: 13px; }
+  .harbor-footer { padding: 10px 17px; }
+  .harbor-heading .eyebrow { font-size: 8px; }
+  .activity-title h2 { font-size: 21px; }
+  .journal-header { padding: 11px 18px; }
+  .journal-title h1 { font-size: 24px; }
+  .journal-layout { height: calc(100dvh - 100px); grid-template-columns: 230px minmax(0, 1fr); }
+  .detail-portrait { height: 95px; margin-top: 3px; }
+  .detail-portrait canvas { height: 85px; }
+  .fish-aura { height: 90px; width: 90px; }
+  .fish-detail { padding: 15px; }
+  .fish-detail h2 { font-size: 21px; }
+  .fish-description { font-size: 10px; margin-bottom: 11px; }
+  .fish-gallery { grid-template-columns: repeat(auto-fill, minmax(106px, 1fr)); }
+  .journal-collection { padding: 14px; }
+  .dock-prompt { bottom: 25px; left: 44%; width: 300px; animation: none; }
+  .sea-mission { display: none; }
+  .world-stats { padding: 7px 0; gap: 23px; }
+  .world-stats b { font-size: 21px; }
+  .shore-intro { font-size: 10px; }
+  .new-season { font-size: 8px; padding: 3px 7px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .harbor-ripples, .harbor-boat, .activity-content, .dock-prompt { animation: none; }
+}

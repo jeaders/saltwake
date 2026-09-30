@@ -1,0 +1,19 @@
+export type UpgradeId = "net" | "engine" | "hull" | "sonar" | "harpoon" | "rod" | "bait" | "cargo" | "boost" | "repair" | "defense" | "boots";
+export type UpgradeGroup = "fishing" | "navigation" | "safety";
+export interface UpgradeDefinition { name:string;subtitle:string;detail:string;icon:string;color:string;costs:number[];group:UpgradeGroup;effect:(level:number)=>string; }
+export const UPGRADE_ORDER:UpgradeId[]=["net","harpoon","rod","bait","engine","boost","sonar","boots","hull","defense","repair","cargo"];
+export const UPGRADES:Record<UpgradeId,UpgradeDefinition>={
+  net:{name:"Rete più grande",subtitle:"Ogni banco è una possibilità",detail:"Raggio +20% e lancio più rapido per livello.",icon:"net",color:"#edcf8e",costs:[150,360,720],group:"fishing",effect:l=>l?`+${l*20}% raggio` : "Rete standard"},
+  harpoon:{name:"Fiocina rinforzata",subtitle:"Per i grandi incontri",detail:"+1 danno e +15% di gittata per livello.",icon:"arrow",color:"#efa28a",costs:[170,390,760],group:"fishing",effect:l=>`${1+l} danno · ${Math.round(540*(1+l*.15))} gittata`},
+  rod:{name:"Canna da professionista",subtitle:"La pesca continua dalla riva",detail:"Abboccate più rapide e +0,25s per reagire a ogni livello.",icon:"fish",color:"#aacdd8",costs:[100,260,520],group:"fishing",effect:l=>`${(1.15+l*.25).toFixed(2)}s per tirare`},
+  bait:{name:"Pastura speciale",subtitle:"Un invito per il mare",detail:"+6s di durata e +120 di raggio per livello.",icon:"bait",color:"#d7c792",costs:[110,280,540],group:"fishing",effect:l=>`${12+l*6}s · ${650+l*120} raggio`},
+  engine:{name:"Motore potenziato",subtitle:"La tua prossima traversata",detail:"+12% di spinta e velocità massima per livello.",icon:"bolt",color:"#f1b58d",costs:[170,400,800],group:"navigation",effect:l=>l?`+${l*12}% potenza`:"Motore di serie"},
+  boost:{name:"Serbatoio maggiorato",subtitle:"Una riserva quando serve",detail:"Boost più duraturo e recupero +30% per livello.",icon:"sun",color:"#ebc379",costs:[140,320,660],group:"navigation",effect:l=>`${(1/.42*(1+l*.4)).toFixed(1)}s di boost`},
+  sonar:{name:"Sonar da ricerca",subtitle:"Leggi ciò che c'è sotto",detail:"Raggio +20%, ricarica più rapida e banchi sul radar.",icon:"sonar",color:"#96dae2",costs:[130,300,580],group:"navigation",effect:l=>`${(9-l*1.3).toFixed(1)}s · ${1000*(1+l*.2)} raggio`},
+  boots:{name:"Stivali da esploratore",subtitle:"Anche la terra è un viaggio",detail:"+10% di passo e corsa più duratura per livello.",icon:"pin",color:"#c5d7a2",costs:[100,240,490],group:"navigation",effect:l=>l?`+${l*10}% passo`:"Passo normale"},
+  hull:{name:"Scafo rinforzato",subtitle:"Non temere la prossima onda",detail:"Riduce ogni danno del 15% per livello, fino al 45%.",icon:"shield",color:"#a5dcb5",costs:[140,320,640],group:"safety",effect:l=>l?`−${l*15}% danni`:"Scafo standard"},
+  defense:{name:"Dissuasore acustico",subtitle:"Un modo per tenere le distanze",detail:"Sblocca H: un impulso allontana i predatori. Migliora raggio e ricarica.",icon:"sonar",color:"#aedce7",costs:[180,380,740],group:"safety",effect:l=>l?`${21-l*3}s · ${350+l*130} raggio`:"Da installare"},
+  repair:{name:"Pompa di riparazione",subtitle:"La tua officina a bordo",detail:"Ripara 0,8% di scafo al secondo per livello, soltanto lontano dai pericoli.",icon:"wrench",color:"#afd6c4",costs:[180,430,850],group:"safety",effect:l=>l?`+${(l*.8).toFixed(1)}% scafo/s`:"Riparazione in porto"},
+  cargo:{name:"Stiva refrigerata",subtitle:"Il valore di una buona pescata",detail:"Conserva meglio il pescato: +12% sul ricavo al mercato per livello.",icon:"chest",color:"#d2bda0",costs:[120,290,570],group:"safety",effect:l=>l?`+${l*12}% al mercato`:"Ricavo standard"},
+};
+export const freshUpgrades=():Record<UpgradeId,number>=>Object.fromEntries(UPGRADE_ORDER.map(id=>[id,0])) as Record<UpgradeId,number>;

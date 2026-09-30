@@ -1,0 +1,248 @@
+/* SALTWAKE • a continuous world, on water and on foot */
+.voyage-mode-select { display:flex;gap:7px;width:100%;max-width:340px; }
+.voyage-mode-select button { display:flex;align-items:center;gap:8px;flex:1;min-width:0;text-align:left;color:#9fbcbf;border:1px solid #fff0c924;border-radius:11px;background:#fff0c906;padding:10px 9px; }
+.voyage-mode-select button.active { background:#bce6ca12;border-color:#bce6ca75;color:#e6e2bc;box-shadow:inset 0 0 15px #bce6ca04; }
+.voyage-mode-select b { display:block;font-size:12px;font-weight:500;white-space:nowrap; }
+.voyage-mode-select small { display:block;font-size:9px;line-height:1.3;color:#98b5b9;margin-top:3px; }
+.resume-voyage { display:flex;align-items:center;justify-content:center;gap:8px;background:none;border:1px solid #b9d8bb28;border-radius:9px;padding:7px 10px;color:#c9d6b7;font-size:11px; }
+.resume-voyage:hover { background:#b9d8bb10; }
+.ship-handling { display:flex;gap:5px; }
+.ship-handling button { display:flex;align-items:center;justify-content:center;gap:4px;flex:1;background:#082239be;border:1px solid #c9d8bb28;border-radius:8px;color:#9abdc7;font-size:.8em;padding:7px 4px; }
+.ship-handling button span { font-size:.8em;border:1px solid #c9d8bb25;border-radius:3px;padding:0 3px;margin-left:auto; }
+.ship-handling button.active { color:#ffdea2;background:#315052d6;border-color:#efcc967a; }
+.explore-map-tools { position:absolute;pointer-events:auto;display:flex;flex-direction:column;gap:7px;width:185px; }
+.open-world-map { display:flex;align-items:center;justify-content:center;gap:7px;background:#0e3448d9;border:1px solid #d9dfbd54;border-radius:9px;color:#e2d9b5;padding:9px 8px;font-size:11px; }
+.open-world-map .tiny-key { font-size:8px;padding:2px 3px;color:#9bb3b9;margin-left:auto; }
+.open-world-map:hover { background:#20505ddb; }
+.view-zoom { display:flex;align-items:center;justify-content:space-between;gap:8px;color:#bad2ca;font-size:10px;background:#09293bd7;border:1px solid #d1e1c828;border-radius:8px;overflow:hidden; }
+.view-zoom button { width:34px;height:30px;border:none;color:#ddd8b6;background:#d1e1c809;font-size:20px;font-weight:400; }
+.view-zoom button:hover:not(:disabled) { background:#d1e1c81a; }
+.view-zoom button:disabled { opacity:.28; }
+.waypoint-guide { pointer-events:auto;position:absolute;left:21px;bottom:113px;display:flex;gap:10px;align-items:center;background:#10353fda;border:1px solid #dfd8a940;border-radius:13px;padding:10px 11px;width:226px;max-width:calc(100vw - 165px);box-shadow:0 4px 20px #041c2530; }
+.waypoint-arrow { color:#f2d99f;display:grid;place-items:center;width:29px;height:29px;background:#e7d39609;border-radius:50%; }
+.waypoint-guide div { flex:1;min-width:0; }
+.waypoint-guide div span { display:block;letter-spacing:1.3px;font-size:7px;color:#90b5bb;margin-bottom:3px; }
+.waypoint-guide b { font-size:12px;font-weight:500;color:#e8dab2;display:block;overflow:hidden;text-overflow:ellipsis;white-space:nowrap; }
+.waypoint-guide small { display:block;font-size:8px;color:#84afb7;margin-top:3px; }
+.waypoint-guide button { background:none;border:none;color:#819fa4;padding:4px; }
+/* The avatar HUD has no fishing-tool overlay, no timer and no artificial walking boundary. */
+.land-status { pointer-events:none;position:absolute;display:flex;gap:11px;align-items:center;background:#173d42dc;border:1px solid #e9daae3d;padding:12px 15px 12px 10px;border-radius:15px;max-width:286px; }
+.land-status h2 { color:#faeac1;margin:3px 0 3px;font-size:21px;font-weight:500;line-height:1.1;letter-spacing:-.3px; }
+.land-status p { color:#a7ccc1;margin:0;font-size:11px; }
+.land-status .eyebrow { font-size:8px;letter-spacing:1.2px;color:#9cbbac; }
+.land-character-badge { position:relative;display:block;width:38px;height:47px;flex-shrink:0; }
+.avatar-head { position:absolute;width:19px;height:19px;border-radius:50%;background:#efc595;left:9px;top:11px;box-shadow:inset 0 -2px 0 #bf8b6c66; }
+.avatar-hat { position:absolute;width:29px;height:10px;top:6px;left:4px;border-radius:7px 7px 2px 2px;background:#f9edca;border-bottom:4px solid #4e7886;z-index:1; }
+.avatar-shirt { position:absolute;width:27px;height:21px;top:28px;left:5px;background:#e78a6e;border-radius:8px 8px 4px 4px;border-bottom:5px solid #344f5d; }
+.avatar-shirt:after { content:"";position:absolute;top:5px;left:1px;right:1px;height:2px;background:#f3e2b7; }
+.land-explorer-tools { position:absolute;pointer-events:auto;display:flex;flex-direction:column;gap:7px;width:203px; }
+.land-stamina { display:flex;gap:6px;align-items:center;background:#1e403adb;border:1px solid #cad5b22e;border-radius:8px;padding:7px 10px;color:#b9d0ad;font-size:8px;letter-spacing:1px; }
+.land-stamina > div { flex:1;background:#b4d39a15;overflow:hidden;border-radius:3px;height:4px; }
+.land-stamina i { display:block;background:#b7df9f;height:100%;border-radius:3px;transition:width .2s; }
+.land-discoveries { display:flex;align-items:center;gap:7px;font-size:11px;color:#c2d4b1;padding:1px 7px;text-shadow:0 1px 4px #1b3b2c; }
+.land-explorer-tools button { padding:8px 10px;display:flex;align-items:center;gap:7px;background:#173a41dc;color:#dce2c2;border:1px solid #d3dccb32;border-radius:9px;font-size:11px; }
+.land-explorer-tools button:hover { background:#2e5950e0; }
+.land-explorer-tools .hud-key { margin-left:auto; }
+.land-controls { position:absolute;right:24px;bottom:24px;display:flex;gap:13px;align-items:flex-end;pointer-events:auto; }
+.land-run-button { border:1.5px solid #cce5b35e;background:#234837df;color:#cae3b3;border-radius:14px;display:flex;flex-direction:column;align-items:center;gap:4px;padding:10px 15px; }
+.land-run-button.running { background:#527051ed;border-color:#d7e5ab;color:#f4edbd; }
+.land-run-button b { font-size:11px;font-weight:500; }
+.land-run-button > span { font-size:8px;color:#abc199; }
+.land-launch-button { position:relative;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:5px;width:100px;height:100px;border:2px solid #f8e2a778;border-radius:24px;background:#214950e8;color:#fae8b7;box-shadow:0 6px 22px #0627334f; }
+.land-launch-button:not(:disabled):hover { background:#37686bdc;border-color:#f8e2a7; }
+.land-launch-button:disabled { background:#1b3c40b0;border-color:#b9cfb626;color:#91aba1;box-shadow:none; }
+.land-launch-button b { font-size:12px;font-weight:500; }
+.land-action-key { position:absolute;top:7px;right:8px;font-size:10px;border:1px solid #dfdfb82b;border-radius:5px;padding:1px 5px; }
+.land-interaction { pointer-events:auto;position:absolute;left:50%;bottom:25px;transform:translateX(-50%);display:flex;gap:12px;align-items:center;max-width:520px;padding:12px 14px;border:1px solid #e9dca157;border-radius:15px;background:#173d41ec;box-shadow:0 8px 25px #0c292742; }
+.land-interaction-symbol { background:#ffffff05;padding:9px;border-radius:10px; }
+.land-interaction div { min-width:160px; }
+.land-interaction div > span { display:block;font-size:8px;letter-spacing:1.5px;color:#90b8b7;margin-bottom:3px; }
+.land-interaction b { display:block;font-size:16px;font-weight:500;line-height:1.15;color:#f6e5be; }
+.land-interaction small { display:block;font-size:10px;color:#b0c7b8;margin-top:5px; }
+.land-interaction button { display:flex;flex-direction:column;align-items:center;gap:5px;padding:8px 11px;background:#eee0b60e;color:#f0ddae;border:1px solid #eee0b645;border-radius:9px;font-size:11px; }
+.land-interaction .tiny-key { font-size:8px; }
+.land-travel-hint { position:absolute;bottom:24px;left:50%;transform:translateX(-50%);display:flex;gap:7px;align-items:center;font-size:10px;color:#cadbb7;background:#183c39cc;border:1px solid #d1dfb525;border-radius:10px;padding:8px 12px;white-space:nowrap; }
+.land-travel-hint > span:not(.tiny-key) { color:#90ad94; }
+/* Atlas */
+.atlas-overlay { background:radial-gradient(ellipse at 45% 35%,#2a4a4899,#071725ed);z-index:22; }
+.atlas-shell { width:min(1160px,100%);display:flex;flex-direction:column;max-height:calc(100dvh - 28px);border:1px solid #d4e1c43d;border-radius:23px;background:linear-gradient(135deg,#173a4c,#0d2b3e);box-shadow:0 30px 100px #0008;overflow:hidden;color:#f5e8c7; }
+.atlas-header { display:flex;align-items:center;gap:16px;padding:18px 22px;border-bottom:1px solid #d2e4cf20;flex-shrink:0; }
+.atlas-logo { display:flex;align-items:center;gap:12px; }
+.atlas-logo > span { display:grid;place-items:center;width:49px;height:49px;border:1px solid #e9d9a936;border-radius:15px;background:#e9d9a90b;color:#f2dca4; }
+.atlas-logo h1 { font-size:30px;font-weight:500;letter-spacing:-.6px;line-height:1.1;margin:4px 0 0; }
+.atlas-logo .eyebrow { font-size:8px;color:#91b3b9;letter-spacing:2px; }
+.atlas-header .icon-button { margin-left:0; }
+.atlas-mode { margin-left:auto;display:flex;align-items:center;gap:7px;font-size:11px;color:#acd8c3;background:#b4dec90a;padding:7px 10px;border:1px solid #b4dec924;border-radius:8px; }
+.atlas-mode i { width:5px;height:5px;border-radius:50%;background:#b0e1bc; }
+.atlas-layout { display:grid;grid-template-columns:minmax(0,1fr) 257px;min-height:0;overflow-y:auto; }
+.atlas-map-column { padding:19px 22px 21px;min-width:0; }
+.atlas-map-tools { display:flex;align-items:center;justify-content:space-between;padding-bottom:12px; }
+.atlas-map-tools > span { display:flex;align-items:center;gap:6px;color:#a5c3bf;font-size:10px; }
+.atlas-map-tools > div { display:flex;gap:5px; }
+.atlas-map-tools button { display:grid;place-items:center;width:30px;height:29px;border-radius:7px;border:1px solid #dbe2c429;background:#dbe2c408;color:#d7dcbc;font-size:21px; }
+.atlas-map-tools button:disabled { opacity:.28; }
+.atlas-map-tools button:hover:not(:disabled) { background:#dbe2c41c; }
+.atlas-map-stage { position:relative;overflow:hidden;border:1px solid #cee0b440;border-radius:13px;background:#133447;max-width:min(100%,calc(200dvh - 820px));min-width:290px;margin-inline:auto; }
+.atlas-world { display:block;width:100%;aspect-ratio:2/1;touch-action:none;cursor:grab; }
+.atlas-world:active { cursor:grabbing; }
+.atlas-port { cursor:pointer;outline:none; }
+.atlas-port:hover circle:last-of-type,.atlas-port:focus circle:last-of-type { fill:#ffaf85;stroke:#fff3c0; }
+.atlas-map-badge { position:absolute;left:11px;bottom:10px;display:flex;gap:6px;align-items:center;font-size:8px;letter-spacing:.6px;background:#102f41df;border:1px solid #d0e0c22e;border-radius:6px;color:#c8d9c0;padding:6px 8px;pointer-events:none; }
+.map-dot { width:5px;height:5px;border-radius:50%;background:#efad88; }
+.atlas-legend { display:flex;gap:14px;align-items:center;flex-wrap:wrap;padding:10px 1px;color:#90b1b9;font-size:9px; }
+.atlas-legend > span { display:flex;gap:4px;align-items:center; }
+.atlas-legend i { width:5px;height:5px;border-radius:50%; }
+.atlas-gesture { margin-left:auto;font-size:8px;color:#779da8; }
+.atlas-selected { display:flex;align-items:center;gap:12px;border:1px solid #d7dfb929;border-radius:12px;background:#dee2c405;padding:14px; }
+.atlas-selected-icon { color:#e5d6a4;background:#e5d6a40a;border-radius:10px;padding:8px; }
+.atlas-selected > div { min-width:0;flex:1; }
+.atlas-selected .eyebrow { font-size:7px;color:#8db0b1;letter-spacing:1.4px; }
+.atlas-selected h2 { font-weight:500;font-size:19px;margin:4px 0;line-height:1.2; }
+.atlas-selected p { font-size:9px;color:#9dbdba;margin:0; }
+.mark-destination { flex-shrink:0;display:flex;align-items:center;gap:8px;border:1px solid #e9d89869;background:#d9cda4;color:#20414b;border-radius:9px;padding:10px;font-size:11px;font-weight:500; }
+.mark-destination:hover { background:#e4ddb0; }
+.atlas-sidebar { border-left:1px solid #d3e1bd22;padding:17px 15px;display:flex;flex-direction:column;min-height:0;background:#061f310f; }
+.atlas-sidebar-tabs { display:flex;gap:3px;border-bottom:1px solid #d1e0ba1c;padding-bottom:11px; }
+.atlas-sidebar-tabs button { flex:1;border:1px solid transparent;border-radius:7px;font-size:10px;background:none;color:#8dafb8;padding:7px 4px; }
+.atlas-sidebar-tabs button.active { background:#d6dfbd0a;color:#dddab1;border-color:#d6dfbd32; }
+.atlas-place-list { display:flex;flex-direction:column;gap:4px;margin:10px 0;max-height:353px;overflow-y:auto;scrollbar-width:thin;scrollbar-color:#bcdcc33a transparent; }
+.atlas-place-list button { display:flex;align-items:center;gap:9px;background:transparent;border:1px solid transparent;border-radius:9px;color:#a2c0bd;padding:8px; }
+.atlas-place-list button:hover,.atlas-place-list button.selected { background:#d7dfbb0a;border-color:#d7dfbb23; }
+.atlas-place-list button div { text-align:left;flex:1;min-width:0; }
+.atlas-place-list b { display:block;font-size:12px;font-weight:500;color:#cce0ca; }
+.atlas-place-list div > span { font-size:9px;color:#7ca3ae;display:block;margin-top:2px; }
+.atlas-place-list > button > svg:last-child { color:#7b9d9c; }
+.atlas-tip { display:flex;gap:8px;border-top:1px solid #d1e0ba1c;padding-top:13px;margin-top:auto;color:#accabd; }
+.atlas-tip b { display:block;font-size:10px;font-weight:500;color:#d5d9b8; }
+.atlas-tip p { font-size:9px;line-height:1.7;color:#87a8b1;margin:5px 0 0; }
+.atlas-empty { padding:20px 8px;font-size:11px;color:#9cbabf;line-height:1.7; }
+.clear-destination { font-size:9px;color:#afc1ae;text-decoration:underline;text-underline-offset:3px;background:none;border:none;margin-top:12px;padding:5px; }
+.atlas-footer { padding:12px 22px;border-top:1px solid #d3e1bd22;display:flex;align-items:center;gap:12px;justify-content:space-between;flex-shrink:0;background:#08213345; }
+.atlas-footer > span { display:flex;align-items:center;gap:6px;font-size:9px;color:#8dafac; }
+.atlas-footer button { display:flex;align-items:center;gap:10px;border:1px solid #d9d9b534;border-radius:8px;background:#d9d9b506;color:#d9d9b5;padding:8px 10px;font-size:10px; }
+@media(min-height:541px) and (max-height:780px){
+  .start-card { padding:19px 24px;gap:9px; }
+  .start-card > .start-col { gap:9px; }
+  .start-card .start-boat svg { width:40px;height:40px; }
+  .start-card .start-title { font-size:66px; }
+  .start-card .world-stats { padding:9px 0; }
+}
+@media(max-width:720px){
+  .voyage-mode-select { max-width:300px; }
+  .voyage-mode-select button { padding:8px;gap:5px; }
+  .voyage-mode-select b { font-size:11px; }
+  .voyage-mode-select small { font-size:8px; }
+  .land-status { gap:6px;max-width:222px;padding:9px;border-radius:12px; }
+  .land-status h2 { font-size:17px; }
+  .land-status .eyebrow { font-size:6px;letter-spacing:.7px; }
+  .land-status p { font-size:9px; }
+  .land-character-badge { transform:scale(.8);width:32px; }
+  .land-explorer-tools { width:174px;gap:5px; }
+  .land-explorer-tools button { font-size:10px;padding:7px 9px; }
+  .land-discoveries { font-size:9px; }
+  .explore-map-tools { width:147px; }
+  .open-world-map { padding:7px 6px;font-size:9px;gap:5px; }
+  .open-world-map .tiny-key { display:none; }
+  .view-zoom { font-size:9px; }
+  .view-zoom button { width:30px;height:30px; }
+  .land-controls { right:15px;bottom:22px;gap:10px; }
+  .land-launch-button { width:84px;height:84px;border-radius:21px; }
+  .land-launch-button b { font-size:10px; }
+  .land-run-button { padding:8px 12px;border-radius:12px; }
+  .land-run-button > span { display:none; }
+  .land-interaction { bottom:125px;max-width:calc(100vw - 25px);padding:10px;gap:8px;width:340px; }
+  .land-interaction-symbol { padding:6px; }
+  .land-interaction div { min-width:0;flex:1; }
+  .land-interaction b { font-size:13px; }
+  .land-interaction small { font-size:9px;line-height:1.5; }
+  .land-interaction button { font-size:9px;padding:7px 8px; }
+  .land-interaction .tiny-key { font-size:7px; }
+  .land-travel-hint { white-space:normal;max-width:175px;left:14px;transform:none;bottom:25px;font-size:9px;line-height:1.7;display:block;padding:8px 9px; }
+  .land-travel-hint .tiny-key { display:none; }
+  .waypoint-guide { left:13px;bottom:113px;max-width:190px;width:190px;padding:8px;gap:6px; }
+  .waypoint-guide b { font-size:10px; }
+  .atlas-header { padding:13px;gap:8px; }
+  .atlas-logo { gap:8px; }
+  .atlas-logo > span { width:35px;height:35px;border-radius:11px; }
+  .atlas-logo > span > svg { width:23px; }
+  .atlas-logo h1 { font-size:22px;margin-top:3px; }
+  .atlas-logo .eyebrow { font-size:6px;letter-spacing:1px; }
+  .atlas-mode { display:none; }
+  .atlas-header .icon-button { margin-left:auto; }
+  .atlas-layout { display:flex;flex-direction:column; }
+  .atlas-map-column { padding:14px; }
+  .atlas-map-stage { max-width:100%;min-width:0; }
+  .atlas-map-tools > span { font-size:8px;gap:4px; }
+  .atlas-map-tools button { width:28px;height:28px; }
+  .atlas-map-tools > div { gap:4px; }
+  .atlas-map-badge { font-size:6px;padding:4px 6px;left:7px;bottom:7px;gap:4px; }
+  .atlas-legend { gap:8px;font-size:8px; }
+  .atlas-gesture { width:100%;font-size:8px;margin-left:0; }
+  .atlas-selected { flex-wrap:wrap;gap:10px;padding:11px; }
+  .atlas-selected h2 { font-size:17px; }
+  .atlas-selected-icon { padding:6px; }
+  .atlas-selected p { font-size:8px; }
+  .mark-destination { width:100%;justify-content:center;font-size:11px; }
+  .atlas-sidebar { border-left:none;border-top:1px solid #d3e1bd22;padding:14px; }
+  .atlas-place-list { max-height:220px;display:grid;grid-template-columns:1fr 1fr;gap:4px; }
+  .atlas-place-list button { padding:6px;gap:6px; }
+  .atlas-place-list b { font-size:10px; }
+  .atlas-place-list div > span { font-size:8px; }
+  .atlas-tip { margin-top:8px; }
+  .atlas-tip p { font-size:9px; }
+  .atlas-footer { padding:10px 13px;gap:8px; }
+  .atlas-footer > span { font-size:8px;line-height:1.5;max-width:165px; }
+  .atlas-footer > span svg { display:none; }
+  .atlas-footer button { padding:8px;font-size:9px;gap:6px; }
+  .atlas-footer .tiny-key { display:none; }
+}
+@media(max-height:540px) and (min-width:650px){
+  .voyage-mode-select button { padding:7px;gap:6px; }
+  .voyage-mode-select b { font-size:10px; }
+  .voyage-mode-select small { font-size:7px; }
+  .resume-voyage { padding:5px 7px;font-size:9px; }
+  .explore-map-tools { top:10px!important;right:107px!important;display:flex;flex-direction:row;gap:6px;width:auto; }
+  .open-world-map { padding:8px;font-size:10px; }
+  .open-world-map > span:not(.tiny-key) { display:none; }
+  .open-world-map .tiny-key { font-size:7px; }
+  .view-zoom { gap:6px; }
+  .view-zoom > span { font-size:9px; }
+  .view-zoom button { width:28px;height:31px; }
+  .land-status { padding:8px;gap:8px;max-width:235px; }
+  .land-status h2 { font-size:18px; }
+  .land-status p { font-size:10px; }
+  .land-status .eyebrow { font-size:7px; }
+  .land-explorer-tools { top:84px!important;width:172px;gap:5px; }
+  .land-explorer-tools button { padding:6px 8px;font-size:10px; }
+  .land-discoveries { font-size:9px; }
+  .land-launch-button { width:80px;height:80px;border-radius:21px; }
+  .land-controls { right:17px;bottom:17px; }
+  .land-travel-hint { bottom:18px;font-size:9px;max-width:400px;white-space:normal;line-height:1.5; }
+  .land-interaction { bottom:18px;left:48%;max-width:330px;padding:9px;gap:8px; }
+  .land-interaction div { min-width:130px; }
+  .land-interaction b { font-size:13px; }
+  .land-interaction small { font-size:9px; }
+  .land-interaction-symbol { padding:6px; }
+  .land-interaction button { font-size:9px;padding:7px 8px; }
+  .waypoint-guide { left:50%;top:58px;bottom:auto;transform:translateX(-50%);width:180px;padding:7px 9px; }
+  .atlas-header { padding:9px 16px; }
+  .atlas-logo h1 { font-size:23px; }
+  .atlas-logo > span { width:38px;height:38px;border-radius:12px; }
+  .atlas-layout { grid-template-columns:minmax(0,1fr) 225px; }
+  .atlas-map-column { padding:13px 16px; }
+  .atlas-selected { padding:10px;gap:8px;flex-wrap:wrap; }
+  .atlas-selected h2 { font-size:16px; }
+  .mark-destination { font-size:10px;padding:8px; }
+  .atlas-footer { padding:9px 16px; }
+}
+@media(prefers-reduced-motion:reduce){.land-stamina i{transition:none;}}
+
+.mode-hint { margin:-2px 0 0;font-size:10px;line-height:1.4;color:#8fb3b6;text-align:center;max-width:340px; }
+.land-fish-button { border:1.5px solid #9fe5eb66;background:#1d4550df;color:#a9e9ee;border-radius:14px;display:flex;flex-direction:column;align-items:center;gap:4px;padding:10px 14px;min-width:68px; }
+.land-fish-button b { font-size:11px;font-weight:500;white-space:nowrap; }
+.land-fish-button > span { font-size:8px;color:#8fc7cd; }
+.land-fish-button.bite { background:#b8382cf0;border-color:#ffe2b3;color:#fff2d6;animation:fish-bite .32s ease-in-out infinite alternate; }
+.land-fish-button.bite > span { color:#ffd9ae; }
+@keyframes fish-bite { from { transform:scale(1); } to { transform:scale(1.09); } }
+@media(max-width:720px){ .land-fish-button { padding:8px 11px;min-width:58px;border-radius:12px; } .land-fish-button > span { display:none; } }
+@media(prefers-reduced-motion:reduce){ .land-fish-button.bite { animation:none; } }

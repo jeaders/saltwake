@@ -1,0 +1,186 @@
+@import "tailwindcss";
+
+:root {
+  --ink: #0b2239;
+  --cream: #fff4dc;
+  --coral: #ff6b4a;
+  --sun: #ffc94a;
+  --teal: #7cf7ff;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  padding: env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left);
+  overflow: hidden;
+  background: #06182a;
+  color: var(--cream);
+  font-family: "Fredoka", ui-rounded, "Trebuchet MS", system-ui, sans-serif;
+  overscroll-behavior: none;
+  -webkit-user-select: none;
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+canvas.game {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  display: block;
+  touch-action: none;
+  outline: none;
+}
+
+.overlay {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px;
+  overflow-y: auto;
+  touch-action: pan-y;
+}
+.overlay > * {
+  margin: auto;
+}
+
+.glass {
+  background: linear-gradient(180deg, rgba(12, 44, 72, 0.88), rgba(6, 24, 42, 0.94));
+  border: 1.5px solid rgba(255, 244, 220, 0.22);
+  border-radius: 28px;
+  box-shadow: 0 24px 70px rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+.btn {
+  font-family: inherit;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  border: 0;
+  cursor: pointer;
+  border-radius: 18px;
+  padding: 12px 22px;
+  transition: transform 0.08s ease, filter 0.15s ease, background 0.15s ease;
+  color: var(--cream);
+  touch-action: manipulation;
+}
+.btn:active {
+  transform: translateY(3px);
+}
+.btn:focus-visible {
+  outline: 3px solid var(--sun);
+  outline-offset: 2px;
+}
+.btn-primary {
+  background: linear-gradient(#ff8263, #ff5a3a);
+  color: #fff;
+  box-shadow: 0 6px 0 #a93a22, 0 14px 26px rgba(255, 90, 58, 0.35);
+  text-shadow: 0 2px 0 rgba(120, 30, 10, 0.5);
+}
+.btn-primary:hover {
+  filter: brightness(1.08);
+}
+.btn-primary:active {
+  box-shadow: 0 2px 0 #a93a22, 0 6px 14px rgba(255, 90, 58, 0.3);
+}
+.btn-ghost {
+  background: rgba(255, 244, 220, 0.1);
+  border: 1.5px solid rgba(255, 244, 220, 0.28);
+}
+.btn-ghost:hover {
+  background: rgba(255, 244, 220, 0.2);
+}
+
+.start-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+.start-col {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  width: 100%;
+}
+
+/* short landscape screens (phones on their side): compact layouts */
+@media (max-height: 540px) {
+  .overlay {
+    padding: 8px;
+  }
+  .start-card {
+    flex-direction: row;
+    align-items: center;
+    max-width: 860px;
+    gap: 1.25rem;
+    padding: 14px 20px;
+    border-radius: 22px;
+  }
+  .start-col {
+    flex: 1 1 0;
+    gap: 0.6rem;
+    min-width: 0;
+  }
+  .start-boat {
+    display: none;
+  }
+  .tool-name {
+    font-size: 12px;
+  }
+  .start-title {
+    font-size: 48px;
+  }
+  .tool-text,
+  .help-text {
+    display: none;
+  }
+  .short-hide {
+    display: none;
+  }
+  .glass h2 {
+    font-size: 40px;
+  }
+}
+
+.title-grad {
+  background: linear-gradient(180deg, #fff7dc 8%, #ffd36b 52%, #ff8a5a 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  filter: drop-shadow(0 4px 0 rgba(120, 40, 20, 0.55));
+  margin: 0;
+}
+
+@keyframes pop {
+  0% {
+    transform: scale(0.88) translateY(10px);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1) translateY(0);
+    opacity: 1;
+  }
+}
+@keyframes floaty {
+  50% {
+    transform: translateY(-6px);
+  }
+}
+.anim-pop {
+  animation: pop 0.3s cubic-bezier(0.2, 1.4, 0.4, 1) both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .anim-pop {
+    animation: none;
+  }
+}

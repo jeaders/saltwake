@@ -1,0 +1,143 @@
+/* SALTWAKE · a tactile, chart-inspired shipyard */
+.harbor-shell.shipyard-open .harbor-content {display:block;padding:18px 23px;}
+.harbor-shell.shipyard-open .harbor-location {display:none;}
+.harbor-shell.shipyard-open .activity-content {max-height:calc(100dvh - 255px);min-height:0;overflow:auto;padding:1px 0 8px;}
+.harbor-shell.shipyard-open .harbor-tabs {margin-bottom:17px;justify-content:flex-start;}
+.harbor-shell.shipyard-open .harbor-tabs button {flex:0 1 auto;min-width:112px;}
+.fleet-workshop-title {display:flex;align-items:center;justify-content:space-between;gap:15px;margin-bottom:19px;}
+.fleet-workshop-title h2 {font-size:27px;font-weight:500;letter-spacing:-.7px;margin:5px 0 6px;line-height:1.12;}
+.fleet-workshop-title p {font-size:11px;color:#92b4bd;margin:0;line-height:1.5;}
+.fleet-workshop-title .eyebrow {font-size:8px;color:#a0bbb6;letter-spacing:1.7px;}
+.fleet-saved {display:flex;align-items:center;gap:7px;color:#98c6b4;font-size:9px;line-height:1.7;padding:8px 11px;border:1px solid #bfd9b52a;border-radius:10px;background:#bfd9b507;white-space:nowrap;}
+.fleet-saved b {font-weight:500;color:#d3d8b6;font-size:10px;}
+.fleet-workshop-layout {display:grid;grid-template-columns:280px minmax(0,1fr);gap:22px;}
+.fleet-design {padding:0 16px 0 0;border-right:1px solid #cce0c61e;min-width:0;}
+.fleet-preview {position:relative;aspect-ratio:1.35;background:radial-gradient(ellipse at 45% 40%,#2a5764,#143349);border:1px solid #c7deca35;border-radius:14px;overflow:hidden;}
+.fleet-chart-grid {position:absolute;inset:0;background-image:linear-gradient(#cde4c409 1px,transparent 1px),linear-gradient(90deg,#cde4c409 1px,transparent 1px);background-size:29px 29px;}
+.fleet-preview-meta {display:flex;justify-content:space-between;position:absolute;top:10px;left:10px;right:10px;font-size:6px;letter-spacing:1.2px;color:#abccbf;}
+.fleet-preview-canvas {position:absolute;inset:0;width:100%;height:100%;object-fit:contain;}
+.fleet-preview-caption {position:absolute;bottom:28px;left:0;right:0;text-align:center;font-size:9px;color:#d7d7b5;}
+.fleet-preview-mark {position:absolute;bottom:10px;left:0;right:0;text-align:center;display:flex;gap:5px;align-items:center;justify-content:center;font-size:6px;letter-spacing:1.7px;color:#7fa9a9;}
+.fleet-name-label {display:block;margin:15px 0 19px;}
+.fleet-name-label > span {font-size:8px;letter-spacing:1.3px;color:#8ba8b1;display:block;margin-bottom:7px;}
+.fleet-name-label > div {display:flex;align-items:center;gap:9px;border:1px solid #d6dfbf30;border-radius:10px;padding:9px 10px;background:#08263540;color:#b2c6b4;}
+.fleet-name-label input {min-width:0;width:100%;background:none;border:none;outline:none;color:#f1e4c0;font-family:inherit;font-size:15px;font-weight:500;user-select:text;}
+.fleet-name-label:focus-within > div {border-color:#e9cd8f89;}
+.fleet-name-label div > svg:last-child {color:#8eb99e;}
+.fleet-design-section {margin-bottom:18px;}
+.fleet-control-title {display:flex;justify-content:space-between;align-items:baseline;gap:5px;margin-bottom:9px;}
+.fleet-control-title b {font-size:11px;font-weight:500;color:#dbddc3;}
+.fleet-control-title > span {font-size:8px;color:#80a5ae;}
+.fleet-models {display:flex;gap:5px;}
+.fleet-models button {display:flex;flex-direction:column;align-items:center;gap:6px;flex:1;padding:9px 4px;border:1px solid #c3d9c525;border-radius:9px;background:#c3d9c506;color:#89aeb6;font-size:8px;}
+.fleet-models button.selected {border-color:#dfd29b99;background:#e6d5a112;color:#edddb6;}
+.fleet-swatches {display:flex;gap:9px;flex-wrap:wrap;}
+.fleet-swatches button {background:var(--swatch);color:#153d48;width:31px;height:31px;border:3px solid #183b4a;outline:1px solid #cce0bd22;border-radius:50%;display:grid;place-items:center;padding:0;transition:outline .12s,transform .12s;}
+.fleet-swatches button:hover {transform:translateY(-2px);outline-color:#eadbb493;}
+.fleet-swatches button.selected {outline:1.5px solid #e6d19b;}
+.fleet-small-controls {display:flex;justify-content:space-between;gap:15px;}
+.fleet-small-label {display:block;font-size:7px;letter-spacing:1.4px;color:#8eafb4;margin-bottom:9px;}
+.fleet-swatches.small {gap:5px;}
+.fleet-swatches.small button {width:24px;height:24px;border-width:2px;}
+.fleet-design-note {display:flex;align-items:center;gap:5px;font-size:8px;color:#7da49f;margin:18px 0 5px;line-height:1.5;}
+.fleet-systems {min-width:0;}
+.fleet-system-stats {display:flex;gap:9px;margin-bottom:18px;}
+.fleet-system-stats > div {flex:1;display:flex;align-items:center;gap:9px;background:#c5d5b704;border:1px solid #c5d5b722;border-radius:10px;padding:10px;color:#b9d1bd;}
+.fleet-system-stats span {font-size:8px;color:#86a8b4;}
+.fleet-system-stats b {display:block;font-weight:500;color:#e7d6a7;font-size:18px;line-height:1.15;margin-top:2px;}
+.fleet-system-heading {display:flex;justify-content:space-between;align-items:center;gap:10px;margin-bottom:13px;}
+.fleet-system-heading h3 {font-size:17px;font-weight:500;letter-spacing:-.35px;margin:0 0 4px;}
+.fleet-system-heading p {font-size:9px;color:#8bacb7;margin:0;}
+.fleet-budget {display:flex;align-items:center;gap:6px;color:#edce8e;font-size:18px;font-weight:500;}
+.fleet-system-tabs {display:flex;gap:5px;border-bottom:1px solid #c0dcc322;margin-bottom:14px;padding-bottom:10px;}
+.fleet-system-tabs button {display:flex;align-items:center;gap:6px;font-size:10px;background:none;border:1px solid transparent;border-radius:7px;padding:7px 9px;color:#8cb0b7;}
+.fleet-system-tabs button.active {background:#dfe5bd0b;color:#e4d8b2;border-color:#dfe5bd33;}
+.fleet-upgrade-list {display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;}
+.fleet-system-card {background:linear-gradient(130deg,#b3d7c107,#b3d7c102);border:1px solid #d4dec620;border-radius:12px;padding:12px;display:flex;flex-direction:column;min-width:0;}
+.fleet-card-head {display:flex;justify-content:space-between;align-items:center;gap:5px;margin-bottom:9px;}
+.fleet-part-icon {display:grid;place-items:center;width:33px;height:33px;border-radius:9px;background:#edf4dd06;border:1px solid #edf4dd13;}
+.fleet-level-indicator {display:flex;gap:3px;align-items:center;}
+.fleet-level-indicator i {height:4px;width:7px;border-radius:2px;background:#d3e7c120;}
+.fleet-level-indicator small {font-size:8px;color:#789f9e;margin-left:4px;}
+.fleet-system-card h4 {font-size:12px;font-weight:500;color:#ebe3c4;margin:0 0 6px;line-height:1.35;}
+.fleet-system-card > p {font-size:9px;color:#8babba;line-height:1.55;margin:0 0 11px;flex:1;}
+.fleet-next-effect {padding:8px 0;border-top:1px solid #cbe0c214;margin-bottom:4px;}
+.fleet-next-effect > span {font-size:6px;letter-spacing:1px;color:#698e9c;display:block;margin-bottom:4px;}
+.fleet-next-effect > b {font-size:10px;font-weight:500;line-height:1.35;display:block;}
+.fleet-buy {display:flex;align-items:center;justify-content:space-between;gap:4px;background:#dae1b70c;color:#e2d4ac;border:1px solid #dae1b738;border-radius:7px;padding:7px 8px;font-size:9px;}
+.fleet-buy > b {display:flex;align-items:center;gap:3px;font-weight:500;font-size:11px;}
+.fleet-buy:hover:not(:disabled) {background:#dae1b722;border-color:#e4d3a766;}
+.fleet-buy:disabled {color:#6e8e97;border-color:#bac9ac13;background:#baceb703;}
+.fleet-system-card.maxed {border-color:#a7d6ae54;}
+.fleet-system-card.maxed .fleet-buy {color:#b2d6ac;justify-content:center;gap:5px;}
+.fleet-supply-row {display:flex;gap:7px;align-items:center;margin-top:17px;padding:12px 0 2px;border-top:1px solid #bed5ae1f;flex-wrap:wrap;}
+.fleet-supply-row > span {font-size:9px;color:#90b1ae;margin-right:auto;}
+.fleet-supply-row button {display:flex;align-items:center;gap:5px;color:#d1d9b8;font-size:9px;border:1px solid #cadab924;border-radius:7px;padding:7px;background:#cadab907;}
+.fleet-supply-row small {font-size:8px;color:#d2ba8b;margin-left:3px;}
+.fleet-supply-row button:disabled {opacity:.35;}
+/* Live boat identity and defensive controls */
+.sea-ship-title {display:flex;gap:5px;align-items:center;padding:0 3px 2px;font-size:.8em;color:#dfd9b8;line-height:1.3;text-shadow:0 1px 4px #072636;}
+.sea-ship-title span {overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
+.adventure-hud .defense-control {color:#b6dce1;border-color:#c7e8dd38;}
+.adventure-hud .defense-control:disabled {opacity:.48;}
+.radar-zoom-controls {position:absolute;pointer-events:auto;display:flex;gap:4px;}
+.radar-zoom-controls button {width:25px;height:24px;border:1px solid #d0dfc738;border-radius:5px;background:#0e3444eb;color:#e9e7c2;font-size:17px;display:grid;place-items:center;line-height:1;}
+.radar-zoom-controls button:hover {background:#31566bed;}
+.radar-zoom-controls > span {font-size:7px;color:#9db6b9;align-self:center;background:#133848dd;border-radius:4px;padding:5px;}
+.threat-warning {pointer-events:auto;position:absolute;bottom:107px;left:50%;transform:translateX(-50%);display:flex;align-items:center;gap:11px;width:365px;max-width:calc(100vw - 26px);background:#4b3330eb;border:1px solid #f3a27b8c;box-shadow:0 7px 27px #10233475;border-radius:14px;padding:12px 14px;}
+.threat-warning > svg {color:#efb095;}
+.threat-warning div {min-width:0;flex:1;}
+.threat-warning span {display:block;letter-spacing:1.3px;font-size:7px;color:#edb392;}
+.threat-warning b {display:block;font-size:16px;font-weight:500;color:#ffe8c3;margin:3px 0;}
+.threat-warning small {display:block;font-size:10px;color:#d9b9a7;line-height:1.4;}
+.threat-warning button {border:1px solid #c3e7da55;border-radius:8px;background:#b8dddc0c;color:#c0e8df;padding:8px;font-size:9px;white-space:nowrap;}
+.threat-warning button:disabled {opacity:.4;}
+@media(max-width:900px){.fleet-upgrade-list{grid-template-columns:repeat(2,minmax(0,1fr));}.fleet-workshop-layout{grid-template-columns:245px minmax(0,1fr);gap:16px;}.fleet-design{padding-right:12px;}}
+@media(max-width:720px){
+  .harbor-shell.shipyard-open .harbor-content {padding:14px;}
+  .harbor-shell.shipyard-open .activity-content {max-height:none;overflow:visible;}
+  .harbor-shell.shipyard-open .harbor-tabs button {min-width:0;flex:1;}
+  .fleet-workshop-title {align-items:flex-start;gap:8px;margin-bottom:14px;}
+  .fleet-workshop-title h2 {font-size:22px;}
+  .fleet-workshop-title .eyebrow {font-size:7px;letter-spacing:1px;}
+  .fleet-workshop-title p {font-size:10px;}
+  .fleet-saved {padding:6px 7px;font-size:7px;gap:4px;}
+  .fleet-saved b {font-size:8px;}
+  .fleet-workshop-layout {display:block;}
+  .fleet-design {padding:0 0 15px;border-right:none;border-bottom:1px solid #c9d9bd27;margin-bottom:18px;}
+  .fleet-preview {aspect-ratio:1.8;}
+  .fleet-preview-meta {font-size:7px;}
+  .fleet-preview-caption {font-size:10px;bottom:29px;}
+  .fleet-preview-mark {font-size:6px;}
+  .fleet-name-label {margin:13px 0 15px;}
+  .fleet-design-section {margin-bottom:14px;}
+  .fleet-models button {font-size:10px;flex-direction:row;justify-content:center;gap:5px;padding:10px 3px;}
+  .fleet-control-title b {font-size:12px;}
+  .fleet-swatches button {height:34px;width:34px;}
+  .fleet-small-controls {justify-content:flex-start;gap:25px;}
+  .fleet-swatches.small button {height:26px;width:26px;}
+  .fleet-design-note {margin-top:13px;font-size:9px;}
+  .fleet-system-stats > div {padding:9px;gap:6px;}
+  .fleet-system-stats b {font-size:17px;}
+  .fleet-system-heading h3 {font-size:16px;}
+  .fleet-system-tabs button {font-size:10px;padding:7px 8px;gap:4px;}
+  .fleet-upgrade-list {gap:8px;}
+  .fleet-system-card {padding:10px;}
+  .fleet-system-card h4 {font-size:12px;}
+  .fleet-system-card > p {font-size:10px;}
+  .fleet-buy {padding:9px 7px;font-size:9px;}
+  .threat-warning {bottom:170px;width:315px;padding:10px;gap:8px;}
+  .threat-warning b {font-size:14px;}
+  .threat-warning small {font-size:9px;}
+  .radar-zoom-controls button {width:27px;height:26px;}
+}
+@media(max-height:540px) and (min-width:650px){
+  .harbor-shell.shipyard-open .activity-content {max-height:none;overflow:visible;}
+  .fleet-workshop-title h2 {font-size:24px;}
+  .fleet-workshop-layout {grid-template-columns:225px minmax(0,1fr);gap:17px;}
+  .fleet-upgrade-list {grid-template-columns:repeat(2,minmax(0,1fr));}
+  .fleet-preview {aspect-ratio:1.35;}
+  .threat-warning {bottom:19px;left:44%;width:285px;gap:7px;padding:9px;}
+  .threat-warning b {font-size:13px;}
+  .threat-warning small {font-size:9px;}
+}

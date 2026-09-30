@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#0b3d5c"/>
+      <stop offset="100%" stop-color="#06182a"/>
+    </linearGradient>
+    <linearGradient id="hull" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#8b5e3c"/>
+      <stop offset="100%" stop-color="#5c3a1e"/>
+    </linearGradient>
+  </defs>
+  <rect width="512" height="512" rx="96" fill="url(#bg)"/>
+  <circle cx="256" cy="256" r="140" fill="none" stroke="#9fe5eb" stroke-width="18" opacity="0.35"/>
+  <path d="M180 260 L256 140 L332 260 L256 240 Z" fill="#ffd36b" opacity="0.95"/>
+  <path d="M200 280 L256 170 L312 280 L256 258 Z" fill="#fff3b0" opacity="0.9"/>
+  <path d="M220 300 L256 210 L292 300 L256 280 Z" fill="url(#hull)" opacity="0.95"/>
+  <rect x="238" y="302" width="36" height="18" rx="4" fill="#3e2723" opacity="0.95"/>
+  <circle cx="256" cy="295" r="14" fill="#ffd27a" opacity="0.9"/>
+  <path d="M230 318 Q256 340 282 318" fill="none" stroke="#9fe5eb" stroke-width="10" opacity="0.55" stroke-linecap="round"/>
+  <text x="256" y="430" text-anchor="middle" font-family="Fredoka, ui-sans-serif, system-ui" font-size="58" font-weight="700" fill="#ffffff" opacity="0.95">SALTWAKE</text>
+</svg>
